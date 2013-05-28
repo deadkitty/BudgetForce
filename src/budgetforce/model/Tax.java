@@ -14,36 +14,36 @@ public class Tax {
     //---------------------------------------------------
     // Get and set functions
     //---------------------------------------------------
-    public int getM_Id() {
+    public int getId() {
         return m_Id;
     }
 
-    public void setM_Id(int m_Id) {
-        this.m_Id = m_Id;
+    public void setId(int _Id) {
+        this.m_Id = _Id;
     }
 
-    public float getM_Amount() {
+    public float getAmount() {
         return m_Amount;
     }
 
-    public void setM_Amount(float m_Amount) {
-        this.m_Amount = m_Amount;
+    public void setAmount(float _Amount) {
+        this.m_Amount = _Amount;
     }
 
-    public String getM_Type() {
+    public String getType() {
         return m_Type;
     }
 
-    public void setM_Type(String m_Type) {
-        this.m_Type = m_Type;
+    public void setType(String _Type) {
+        this.m_Type = _Type;
     }
 
-    public boolean isM_SystemFlag() {
+    public boolean isSystemFlag() {
         return m_SystemFlag;
     }
 
-    public void setM_SystemFlag(boolean m_SystemFlag) {
-        this.m_SystemFlag = m_SystemFlag;
+    public void setSystemFlag(boolean _SystemFlag) {
+        this.m_SystemFlag = _SystemFlag;
     }
 
     //---------------------------------------------------
