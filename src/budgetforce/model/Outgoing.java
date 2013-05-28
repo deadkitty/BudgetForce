@@ -2,32 +2,25 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package budgetforce.model;
 import java.util.Date;
 
 /**
  *
- * @author kinske
+ * @author David
  */
-public class Income {
-  
+public class Outgoing {
+
     //---------------------------------------------------
-    // Get and Set Functions
-    //--------------------------------------------------- 
+    // Get and set functions
+    //---------------------------------------------------
     public int getId() {
         return m_Id;
     }
 
     public void setId(int _Id) {
         this.m_Id = _Id;
-    }
-
-    public String getName() {
-        return m_Name;
-    }
-
-    public void setName(String _Name) {
-        this.m_Name = _Name;
     }
 
     public float getAmount() {
@@ -62,40 +55,39 @@ public class Income {
         this.m_End = _End;
     }
 
-    public Date getTimestamp() {
-        return m_Timestamp;
+    public Date getTimeStamp() {
+        return m_TimeStamp;
     }
 
-    public void setTimestamp(Date _Timestamp) {
-        this.m_Timestamp = _Timestamp;
+    public void setTimeStamp(Date _TimeStamp) {
+        this.m_TimeStamp = _TimeStamp;
     }
 
-    public int getPersonID() {
-        return m_PersonID;
+    public int getBudgetId() {
+        return m_BudgetId;
     }
 
-    public void setPersonID(int _PersonID) {
-        this.m_PersonID = _PersonID;
+    public void setBudgetId(int _BudgetId) {
+        this.m_BudgetId = _BudgetId;
     }
 
-    public int getIncomeID() {
-        return m_IncomeID;
+    public int getCategoryId() {
+        return m_CategoryId;
     }
 
-    public void setIncomeID(int _IncomeID) {
-        this.m_IncomeID = _IncomeID;
-    }
-    
+    public void setCategoryId(int _CategoryId) {
+        this.m_CategoryId = _CategoryId;
+    } 
+   
     //---------------------------------------------------
     // Private variables
-    //--------------------------------------------------- 
+    //---------------------------------------------------
     private int     m_Id;
-    private String  m_Name;
     private float   m_Amount;
     private String  m_Period;
     private Date    m_Start;
     private Date    m_End;
-    private Date    m_Timestamp;
-    private int     m_PersonID;
-    private int     m_IncomeID;    
+    private Date    m_TimeStamp;
+    private int     m_BudgetId;
+    private int     m_CategoryId;
 }
