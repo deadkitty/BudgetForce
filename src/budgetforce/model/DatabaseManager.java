@@ -63,7 +63,7 @@ public class DatabaseManager {
     public Address getAddressByID(int _id)
     {}
     
-    public Address[] getAddressByPersonID(int _personID) //should return an array
+    public ArrayList<Address> getAddressByPersonID(int _personID) //should return an array
     {}
     
     public boolean insertAddress(Address _address)
@@ -79,13 +79,13 @@ public class DatabaseManager {
     public Budget getBudgetByID(int _id)
     {}
     
-    public Budget[] getBudgetByPersonID(int _personID) //should return an array
+    public ArrayList<Budget> getBudgetByPersonID(int _personID) //should return an array
     {}
     
-    public Budget[] getBudgetByProjectID(int _projectID)
+    public ArrayList<Budget> getBudgetByProjectID(int _projectID)
     {}
     
-    public Budget[] getBudgetByBudgetID(int _budgetID)
+    public ArrayList<Budget> getBudgetByBudgetID(int _budgetID)
     {}
     
     public boolean insertBudget(Budget _budget)
@@ -160,7 +160,7 @@ public class DatabaseManager {
     }
     
     
-    public ArrayList<Income> getIncomeByPersonID(int _id)
+    public ArrayList<Income> getIncomeByPersonID(int _personID)
     {
         establishConnection();
         
@@ -168,23 +168,23 @@ public class DatabaseManager {
         Statement s = null;
         
         ArrayList    incomeArray     = new ArrayList<Income>();
-        Income       tmpIncome       = new Income();
         
         try
         {
             s = connection.createStatement();
-            String query = "SELECT * FROM income WHERE personID = " + _id;
+            String query = "SELECT * FROM income WHERE \"personID\" = " + _personID;
             rs = s.executeQuery(query);
         }
         
         catch(Exception e)
         {
-            System.out.println("Problem in searching the database");
+            System.out.println("Problem when searching in the database");
         }
         
         try {
             while(rs.next())
             {         
+                Income tmpIncome       = new Income();
                 tmpIncome.setId(rs.getInt("id"));
                 tmpIncome.setName(rs.getString("name"));
                 tmpIncome.setAmount(rs.getFloat("amount"));
@@ -194,22 +194,24 @@ public class DatabaseManager {
                 tmpIncome.setTimestamp(rs.getDate("timestamp"));
                 tmpIncome.setPersonID(rs.getInt("personID"));
                 tmpIncome.setIncomeID(rs.getInt("incomeID"));
-                
+       
                 incomeArray.add(tmpIncome);
+           
             }
+            
         } 
         
         catch(Exception e)
         {
             System.out.println("Problem when filling into Element");
         }
-        
+         
         closeConnection();
         
         return incomeArray;
     }
     /*
-    public Income[] getIncomeByIncomeID(int _incomeID)
+    public ArrayList<Income> getIncomeByIncomeID(int _incomeID)
     {}
     
     public boolean insertIncome(Income _income)
@@ -249,10 +251,10 @@ public class DatabaseManager {
     public Outgoing getOutgoingByID(int _id)
     {}
     
-    public Outgoing[] getOutgoingByBudgetID(int _budgetID)
+    public ArrayList<Outgoing> getOutgoingByBudgetID(int _budgetID)
     {}
     
-    public Outgoing[] getOutgoingByCategoryID(int _categoryID)
+    public ArrayList<Outgoing> getOutgoingByCategoryID(int _categoryID)
     {}
     
     public boolean insertOutgoing(Outgoing _outgoing)
@@ -286,7 +288,7 @@ public class DatabaseManager {
     public boolean insertPerson(Person _person)
     {}
     
-    public booleanean updatePerson(Person _person)
+    public boolean updatePerson(Person _person)
     
     public boolean deletePerson(int _id)
     {}
@@ -379,14 +381,4 @@ public class DatabaseManager {
         x.closeConnection();
     }
     * */
-    
-    public static void main (String[] args) throws SQLException
-    {
-        Income income = new Income();
-        DatabaseManager db = new DatabaseManager();
-        
-        income = db.getIncomeByID(1);
-        
-        System.out.print(income.getTimestamp());
-    }
 }
